@@ -38,10 +38,22 @@ update_panel() {
     echo "Update panel Pterodactyl selesai."
 }
 
+# Fungsi untuk melakukan update Wings
+update_wings() {
+    echo "Memulai proses update Wings..."
+
+    # Mengunduh dan menginstal Wings terbaru
+    curl -L -o /usr/local/bin/wings https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_amd64
+    chmod +x /usr/local/bin/wings
+
+    echo "Update Wings selesai."
+}
+
 # Menampilkan menu opsi
 echo "Menu:"
 echo "1. Update panel Pterodactyl"
-echo "2. Keluar"
+echo "2. Update Wings Pterodactyl"
+echo "3. Keluar"
 
 # Membaca pilihan pengguna
 read -p "Masukkan pilihan Anda: " choice
@@ -52,6 +64,9 @@ case $choice in
         update_panel
         ;;
     2)
+        update_wings
+        ;;
+    3)
         echo "Keluar dari skrip."
         exit 0
         ;;
